@@ -2,14 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('AdressUsers', {
-      idAdress_User: {
+    await queryInterface.createTable('Favoritos', {
+      idFavoritos: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fkUser: {
+     favoritos: {
+        type: Sequelize.INTEGER
+      },
+      fk_Clinica: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Clinics', 
+          key: 'idClinic' 
+        },
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      fk_Usuario: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users', 
@@ -18,18 +31,9 @@ module.exports = {
         allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
+        
       },
-     
-      fkAdress: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Adresses', 
-          key: 'idAdress' 
-        },
-        allowNull: false,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
+      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -41,6 +45,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('AdressUsers');
+    await queryInterface.dropTable('Favoritos');
   }
 };

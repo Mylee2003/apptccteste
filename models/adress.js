@@ -23,13 +23,14 @@ module.exports = (sequelize, DataTypes) => {
 
   Adress.init(
     {
+      idAdress: DataTypes.INTEGER,
       cep: DataTypes.INTEGER,
       uf: DataTypes.STRING,
       bairro: DataTypes.STRING,
       municipio: DataTypes.STRING,
       logradouro: DataTypes.STRING,
       numero: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER,
+      complemento: DataTypes.STRING
     },
     {
       sequelize,

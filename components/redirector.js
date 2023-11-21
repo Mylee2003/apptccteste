@@ -75,6 +75,13 @@ export default function Redirector(props) {
         <Text>Todas Clínicas</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => props.navigation.navigate('PerfilUser')}
+      >
+ <Text>Perfil</Text>
+      </TouchableOpacity>
+
     </View>
   );
 }

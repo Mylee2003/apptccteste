@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   AdressClinic.init({
+    idAdress_Clinic: DataTypes.INTEGER,
     idClinic: DataTypes.INTEGER,
     idAdress: DataTypes.INTEGER
   }, {

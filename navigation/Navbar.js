@@ -12,6 +12,7 @@ import AllAdresses from '../components/allAdresses';
 import AllUsers from '../components/allUsers';
 import AllRatings from '../components/allRatings';
 import AllClinics from '../components/AllClinics';
+import PerfilUser from '../components/perfilUser';
 
 class Stack extends Component {
   render() {
@@ -32,6 +33,7 @@ const myStack = createStackNavigator(
     AllAdresses: AllAdresses,
     AllUsers: AllUsers,
     AllClinics: AllClinics,
+    PerfilUser: PerfilUser,
   },
   {
     initialRouteName: 'Redirector',

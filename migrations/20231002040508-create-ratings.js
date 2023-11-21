@@ -3,21 +3,68 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Ratings', {
-      id: {
+      idAvaliacao: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      
       texto: {
         type: Sequelize.STRING,
       },
-      nota: {
-        type: Sequelize.INTEGER,
+      area: {
+        type: Sequelize.STRING
       },
-      idUser: {
+      fk_User: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Users', 
+          key: 'idUser' 
+        },
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+        
       },
+      fk_Clinica: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Clinics', 
+          key: 'idClinic' 
+        },
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      likes: {
+        type: Sequelize.INTEGER
+      },
+      fk_Notas: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Nota', 
+          key: 'idNota' 
+        },
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      fk_Favoritos: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Favoritos', 
+          key: 'idFavoritos' 
+        },
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+
+      },
+      media_nota: {
+        type: Sequelize.DECIMAL
+      },
+      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

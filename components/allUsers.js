@@ -18,7 +18,7 @@ export default class App extends Component {
   }
 
   getUsers = async () => {
-    fetch('https://10.67.168.152:3000/getAllUsers')
+    fetch(' exp://192.168.1.64:8081/getAllUsers')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -37,14 +37,19 @@ export default class App extends Component {
     return (
       <ScrollView>
         <Text>Usuários:</Text>
+        <Text>Teste</Text>
         <FlatList
           data={this.state.object}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.idUser.toString()}
           renderItem={({ item }) => (
             <View style={{ marginTop: 20 }}>
-              <Text> id: {item.id}</Text>
+              
+              <Text> id: {item.idUser}</Text>
               <Text> email: {item.email}</Text>
               <Text> senha: {item.password}</Text>
+              <Text>nome: {item.name}</Text>
+              <Text>sexo: {item.sexo}</Text>
+              <Text>Data de Nascimento: {item.dataNasc}</Text>
               <View
                 style={{ width: 300, height: 1, backgroundColor: 'black' }}
               ></View>

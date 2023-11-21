@@ -13,9 +13,17 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ratings.init(
     {
+      idAvaliacao: DataTypes.INTEGER,
       texto: DataTypes.STRING,
       nota: DataTypes.INTEGER,
       idUser: DataTypes.INTEGER,
+      area: DataTypes.STRING,
+      likes: DataTypes.INTEGER,
+      media_nota: DataTypes.DECIMAL(5,2),
+      fk_idFavoritos: DataTypes.INTEGER,
+      fk_idNotas: DataTypes.INTEGER,
+      fk_idClinic: DataTypes.INTEGER
+      
     },
     {
       sequelize,
